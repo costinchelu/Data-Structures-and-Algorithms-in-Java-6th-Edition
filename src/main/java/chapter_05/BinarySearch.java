@@ -12,7 +12,7 @@ public class BinarySearch {
         else {
             int mid = (low + high) / 2;
             if (target == data[mid])
-                return true; // found a match
+                return true;
             else if (target < data[mid])
                 return binarySearch(data, target, low, mid - 1); // recur left of the middle
             else

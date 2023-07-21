@@ -1,5 +1,6 @@
 package chapter_03;
 
+/** Matrix operations */
 public class TicTacToe {
 
     public static final int X = 1;
@@ -8,7 +9,7 @@ public class TicTacToe {
 
     public static final int EMPTY = 0;
 
-    private int board[][] = new int[3][3];
+    private int[][] board = new int[3][3];
 
     private int player;
 
@@ -29,8 +30,8 @@ public class TicTacToe {
             throw new IllegalArgumentException("Invalid board position");
         if (board[i][j] != EMPTY)
             throw new IllegalArgumentException("Board position occupied");
-        board[i][j] = player; // place the mark for the current player
-        player = -player; // switch players (uses fact that O = - X)
+        board[i][j] = player;
+        player = -player;
     }
 
     // Checks whether the board configuration is a win for the given player.
@@ -56,15 +57,9 @@ public class TicTacToe {
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 switch (board[i][j]) {
-                    case X:
-                        sb.append("X");
-                        break;
-                    case O:
-                        sb.append("O");
-                        break;
-                    case EMPTY:
-                        sb.append(" ");
-                        break;
+                    case X -> sb.append("X");
+                    case O -> sb.append("O");
+                    case EMPTY -> sb.append(" ");
                 }
                 if (j < 2) sb.append("|");
             }
